@@ -13,12 +13,13 @@ process.env.NODE_ENV = process.env.NODE_ENV || "dev"; //env de heroku
 //========================
 // BASE DE DATOS
 //========================
+let urlDB;
+
 if (process.env.NODE_ENV === "dev") {
   urlDB =
     "mongodb+srv://generalUser:WM2ohphEjekZQhlj@cluster0.pc6ee.mongodb.net/cafe?retryWrites=true&w=majority";
 } else {
-  urlDB =
-    "mongodb+srv://generalAppUsua:lucuma2020@cluster0.a8kcm.mongodb.net/cafe?retryWrites=true&w=majority";
+  urlDB = process.env.MONGO_URI_PROD;
 }
 
-process.env.urlDB = urlDB;
+process.env.uriDB = urlDB;

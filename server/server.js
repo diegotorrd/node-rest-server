@@ -17,7 +17,7 @@ app.use(require("./routes/usuario"));
 
 //base de datos
 mongoose.connect(
-  process.env.urlDB,
+  process.env.uriDB,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -25,7 +25,10 @@ mongoose.connect(
     useCreateIndex: true,
   },
   (err, res) => {
-    if (err) throw err;
+    if (err) {
+      console.log("envv : " + process.env.uriDB);
+      throw err;
+    }
 
     console.log("Base de datos ONLINE");
   }
