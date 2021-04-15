@@ -16,8 +16,11 @@ process.env.NODE_ENV = process.env.NODE_ENV || "dev"; //env de heroku
 let urlDB;
 
 if (process.env.NODE_ENV === "dev") {
-  urlDB =
-    "mongodb+srv://generalUser:WM2ohphEjekZQhlj@cluster0.pc6ee.mongodb.net/cafe?retryWrites=true&w=majority";
+  require("dotenv").config();
+}
+
+if (process.env.NODE_ENV === "dev") {
+  urlDB = process.env.MONGO_URI_LOCAL;
 } else {
   urlDB = process.env.MONGO_URI_PROD;
 }
