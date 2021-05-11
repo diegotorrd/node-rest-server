@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-//routes
-app.use(require("./routes/usuario"));
+//configuración global de rutas
+app.use(require("./routes/index"));
 
 //base de datos
 mongoose.connect(
@@ -26,7 +26,6 @@ mongoose.connect(
   },
   (err, res) => {
     if (err) {
-      console.log("envv : " + process.env.uriDB);
       throw err;
     }
 
